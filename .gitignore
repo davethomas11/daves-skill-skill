@@ -1,0 +1,9 @@
+# Environment Variables
+.env
+
+# Skill Packages
+*.skill
+
+# OS Files
+.DS_Store
+Thumbs.db
