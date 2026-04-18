@@ -14,6 +14,14 @@ By default, AI agents are generalists. When you "install" this skill, you are gi
 
 This skill advocates for a **Security-First** approach, emphasizing the use of `.env` files and system-level secure stores (like macOS Keychain and Windows SecretStore) to protect sensitive credentials.
 
+### Why use a System Secure Store (Key Vault)?
+A system secure store provides a significantly higher level of protection than a standard `.env` file:
+
+- **Encryption at Rest:** Unlike a `.env` file, which is plain text, these stores encrypt your keys using industry-standard algorithms (like AES). Even if someone gains access to your files, they cannot read the keys.
+- **Session-Based Access:** These stores are often tied to your **User Login Session**. This means the keys are only "unlocked" when you are actively logged in.
+- **Protection from Network Attacks:** If an attacker gains unauthorized access to your file system through the network, they might be able to steal your `.env` file, but they **cannot** decrypt the secrets in a secure store without your system password or a specific master key.
+- **Agent Context:** Because the AI agent runs with your user permissions, it can securely request the keys on your behalf while you are at the terminal, keeping them out of permanent cleartext files.
+
 ---
 
 ## 🚀 The Four Pillars
